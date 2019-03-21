@@ -61,7 +61,8 @@
     "phonegap-plugin-push": "2.2.3",
     "rxjs": "6.4.0",
     "subscriptions-transport-ws": "0.9.16",
-    "zone.js": "0.8.29"
+    "zone.js": "0.8.29",
+    "cordova-plugin-aerogear-metrics": "@aerogear/cordova-plugin-aerogear-metrics@~2.1.0-rc1"
   },
   "devDependencies": {
     "@angular-devkit/architect": "0.13.5",

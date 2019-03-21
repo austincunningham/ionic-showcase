@@ -31,9 +31,11 @@ export class SecurityService {
   }
 
   getClientData() {
-    const clientData = this.security.getClientData();
-    console.log('Client Data :', clientData);
-    return clientData;
+    this.security.getClientData()
+     .then(clientData => {
+       console.log('Client Data :', clientData);
+       return clientData;
+     });
   }
   getAuth() {
     return this.security;
