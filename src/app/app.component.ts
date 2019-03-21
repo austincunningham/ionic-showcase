@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './services/auth.service';
 import { PushMessage, PushService } from './services/push.service';
+import { SecurityService } from './services/security.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,8 @@ export class AppComponent {
     private statusBar: StatusBar,
     private navCtrl: NavController,
     public auth: AuthService,
-    private pushService: PushService
+    private pushService: PushService,
+    private securityService: SecurityService,
   ) {
     this.auth.getProfile().then((profile) => {
       this.user = profile;
@@ -35,6 +37,9 @@ export class AppComponent {
 
       // Initialize the push service
       this.pushService.initialize(this.handleNotification.bind(this));
+      // returning data from the security service
+      this.securityService.getURL();
+      this.securityService.getClientData();
 
       if (document) {
         document.addEventListener('deviceready', () => {

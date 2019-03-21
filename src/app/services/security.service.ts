@@ -21,19 +21,20 @@ export class SecurityService {
       if (this.isEnabled()) {
           this.security = new AppSecurity(this.openShift.getConfig());
           this.aerogear = aerogear;
-          // this.initialized = platform.ready().then(() => {
-          //     return this.security;
-          // });
-          this.getURL();
       }
   }
 
-  getURL(){
+  getURL() {
     const config = this.security.getConfig();
-    console.log('Do I get here', config);
+    console.log(config);
     return config;
   }
 
+  getClientData() {
+    const clientData = this.security.getClientData();
+    console.log('Client Data :', clientData);
+    return clientData;
+  }
   getAuth() {
     return this.security;
   }
